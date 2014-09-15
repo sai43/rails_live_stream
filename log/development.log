@@ -1,0 +1,2406 @@
+  [1m[36m (172.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (188.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMessages (20130403134813)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "content" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130403134813"]]
+  [1m[36m (165.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-15 15:18:01 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (137.9ms)
+Completed 200 OK in 1193ms (Views: 1163.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-15 15:18:02 +0530
+
+
+Started GET "/assets/chats.css?body=1" for 127.0.0.1 at 2014-09-15 15:18:02 +0530
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2014-09-15 15:18:02 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-15 15:18:02 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-15 15:18:02 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-15 15:18:02 +0530
+
+
+Started GET "/assets/chats.js?body=1" for 127.0.0.1 at 2014-09-15 15:18:02 +0530
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2014-09-15 15:18:02 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-15 15:18:02 +0530
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 15:18:03 +0530
+Processing by MessagesController#events as text/event-stream
+Completed   in 1039015ms
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-15 16:00:07 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (92.1ms)
+Completed 500 Internal Server Error in 129ms
+
+NoMethodError (undefined method `call' for nil:NilClass):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:66:in `call_on_error'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:136:in `rescue in block in process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:145:in `block in process'
+
+
+
+ActionView::Template::Error (undefined method `messages' for #<Message:0xae886f4>):
+    4: </ul>
+    5: 
+    6: <%= form_for Message.new, remote: true do |f| %>
+    7:   <%= f.text_area :messages, size: "60x12" %> 
+    8:   <%= f.text_field :name, placeholder: "Name" %>
+    9:   <%= f.text_field :content %>
+   10:   <%= f.submit "Send", id: "message_submit" %>
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activemodel-4.0.0/lib/active_model/attribute_methods.rb:436:in `method_missing'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/attribute_methods.rb:131:in `method_missing'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/helpers/tags/base.rb:28:in `value'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/helpers/tags/base.rb:37:in `value_before_type_cast'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/helpers/tags/text_area.rb:13:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/helpers/form_helper.rb:870:in `text_area'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/helpers/form_helper.rb:1262:in `text_area'
+  /home/gopi/Development/livestream/app/views/messages/index.html.erb:7:in `block in _app_views_messages_index_html_erb__798911746_91448930'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/helpers/capture_helper.rb:38:in `block in capture'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/helpers/capture_helper.rb:200:in `with_output_buffer'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/helpers/capture_helper.rb:38:in `capture'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/helpers/form_helper.rb:435:in `form_for'
+  /home/gopi/Development/livestream/app/views/messages/index.html.erb:6:in `_app_views_messages_index_html_erb__798911746_91448930'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/template.rb:143:in `block in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:161:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/template.rb:141:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:17:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__758845677__process_action__callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:132:in `block in process'
+
+
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:01:06 +0530
+Processing by MessagesController#events as */*
+Completed 200 OK in 6005ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:05:24 +0530
+Processing by MessagesController#events as */*
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-15 16:21:14 +0530
+Processing by MessagesController#index as */*
+  Rendered messages/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 416ms (Views: 415.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-15 16:22:07 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (45.3ms)
+Completed 200 OK in 232ms (Views: 202.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-15 16:22:07 +0530
+
+
+
+Started GET "/assets/chats.css?body=1" for 127.0.0.1 at 2014-09-15 16:22:07 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-15 16:22:07 +0530
+
+
+
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-15 16:22:07 +0530
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2014-09-15 16:22:07 +0530
+
+
+
+Started GET "/assets/chats.js?body=1" for 127.0.0.1 at 2014-09-15 16:22:07 +0530
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-15 16:22:07 +0530
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2014-09-15 16:22:07 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-15 16:22:07 +0530
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:22:07 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:22:08 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:22:18 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6002ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-15 16:22:29 +0530
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-15 16:22:30 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-15 16:22:30 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-15 16:22:30 +0530
+
+
+Started GET "/assets/chats.js?body=1" for 127.0.0.1 at 2014-09-15 16:22:30 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-15 16:22:30 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-15 16:22:30 +0530
+
+
+
+
+Started GET "/assets/chats.css?body=1" for 127.0.0.1 at 2014-09-15 16:22:30 +0530
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2014-09-15 16:22:30 +0530
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2014-09-15 16:22:30 +0530
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:22:30 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:22:30 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:22:41 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:22:52 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:23:03 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:23:14 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:23:25 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:23:36 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:23:47 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:23:58 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:24:09 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:24:20 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:24:31 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:24:42 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:24:53 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:25:04 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:25:15 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:25:26 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6002ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:25:37 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:25:48 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6002ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:25:59 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:26:10 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:26:21 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:26:32 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:26:43 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:26:54 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:27:05 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:27:16 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:27:27 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:27:38 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:27:49 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:28:00 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:28:11 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:28:22 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:28:33 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:28:44 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:28:55 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:29:06 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:29:17 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6002ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:29:28 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:29:39 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:29:50 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:30:01 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:30:12 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:30:23 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:30:34 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:30:45 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:30:56 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:31:07 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:31:18 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:31:29 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:31:40 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:31:51 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:32:02 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:32:13 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:32:24 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:32:35 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:32:46 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:32:58 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:33:09 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:33:20 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:33:31 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:33:42 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:33:53 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:34:04 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:34:15 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6002ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:34:26 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:34:37 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:34:48 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:34:59 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:35:10 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:35:21 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6002ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:35:32 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:35:43 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:35:54 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:36:05 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:36:16 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:36:27 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:36:38 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:36:49 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:37:00 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6002ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:37:11 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:37:22 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:37:33 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:37:44 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:37:55 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6005ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:38:06 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:38:17 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6002ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:38:28 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6002ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:38:39 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:38:50 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6005ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:39:02 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6002ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-15 16:39:22 +0530
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 265ms (Views: 264.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-15 16:39:22 +0530
+
+
+Started GET "/assets/chats.css?body=1" for 127.0.0.1 at 2014-09-15 16:39:22 +0530
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2014-09-15 16:39:22 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-15 16:39:22 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-15 16:39:22 +0530
+
+
+Started GET "/assets/chats.js?body=1" for 127.0.0.1 at 2014-09-15 16:39:22 +0530
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2014-09-15 16:39:22 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-15 16:39:22 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-15 16:39:22 +0530
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:39:23 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:39:23 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 6002ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:39:34 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:39:45 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6004ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-15 16:39:53 +0530
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-15 16:39:53 +0530
+
+
+Started GET "/assets/chats.css?body=1" for 127.0.0.1 at 2014-09-15 16:39:53 +0530
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2014-09-15 16:39:53 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-15 16:39:53 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-15 16:39:53 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-15 16:39:53 +0530
+
+
+Started GET "/assets/chats.js?body=1" for 127.0.0.1 at 2014-09-15 16:39:53 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-15 16:39:53 +0530
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2014-09-15 16:39:53 +0530
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:39:53 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:39:53 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:39:56 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 6002ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:40:04 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:40:07 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:40:15 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:40:18 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:40:26 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:40:29 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 16:40:37 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 16:41:15 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>"hello world"}, "commit"=>"Send"}
+  [1m[35m (0.9ms)[0m  begin transaction
+  [1m[36mSQL (203.4ms)[0m  [1mINSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "hello world"], ["created_at", Mon, 15 Sep 2014 11:11:15 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:11:15 UTC +00:00]]
+  [1m[35m (181.2ms)[0m  commit transaction
+Completed 500 Internal Server Error in 414ms
+
+NoMethodError (undefined method `call' for nil:NilClass):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:66:in `call_on_error'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:136:in `rescue in block in process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:145:in `block in process'
+
+
+
+ActionView::MissingTemplate (Missing template messages/create, application/create with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/gopi/Development/livestream/app/views"
+):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/path_set.rb:46:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/lookup_context.rb:115:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:8:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__818430000__process_action__callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:132:in `block in process'
+
+
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 16:41:20 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>"hello world"}, "commit"=>"Send"}
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["content", "hello world"], ["created_at", Mon, 15 Sep 2014 11:11:20 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:11:20 UTC +00:00]]
+  [1m[36m (313.2ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 322ms
+
+NoMethodError (undefined method `call' for nil:NilClass):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:66:in `call_on_error'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:136:in `rescue in block in process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:145:in `block in process'
+
+
+
+ActionView::MissingTemplate (Missing template messages/create, application/create with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/gopi/Development/livestream/app/views"
+):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/path_set.rb:46:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/lookup_context.rb:115:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:8:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__818430000__process_action__callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:132:in `block in process'
+
+
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 16:41:22 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"", "content"=>""}, "commit"=>"Send"}
+  [1m[35m (0.5ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", ""], ["created_at", Mon, 15 Sep 2014 11:11:22 UTC +00:00], ["name", ""], ["updated_at", Mon, 15 Sep 2014 11:11:22 UTC +00:00]]
+  [1m[35m (172.7ms)[0m  commit transaction
+Completed 500 Internal Server Error in 179ms
+
+NoMethodError (undefined method `call' for nil:NilClass):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:66:in `call_on_error'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:136:in `rescue in block in process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:145:in `block in process'
+
+
+
+ActionView::MissingTemplate (Missing template messages/create, application/create with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/gopi/Development/livestream/app/views"
+):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/path_set.rb:46:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/lookup_context.rb:115:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:8:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__818430000__process_action__callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:132:in `block in process'
+
+
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 16:41:26 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>""}, "commit"=>"Send"}
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["content", ""], ["created_at", Mon, 15 Sep 2014 11:11:26 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:11:26 UTC +00:00]]
+  [1m[36m (343.9ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 352ms
+
+NoMethodError (undefined method `call' for nil:NilClass):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:66:in `call_on_error'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:136:in `rescue in block in process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:145:in `block in process'
+
+
+
+ActionView::MissingTemplate (Missing template messages/create, application/create with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/gopi/Development/livestream/app/views"
+):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/path_set.rb:46:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/lookup_context.rb:115:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:8:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__818430000__process_action__callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:132:in `block in process'
+
+
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 16:41:29 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>"hello world"}, "commit"=>"Send"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "hello world"], ["created_at", Mon, 15 Sep 2014 11:11:29 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:11:29 UTC +00:00]]
+  [1m[35m (255.1ms)[0m  commit transaction
+Completed 500 Internal Server Error in 262ms
+
+NoMethodError (undefined method `call' for nil:NilClass):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:66:in `call_on_error'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:136:in `rescue in block in process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:145:in `block in process'
+
+
+
+ActionView::MissingTemplate (Missing template messages/create, application/create with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/gopi/Development/livestream/app/views"
+):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/path_set.rb:46:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/lookup_context.rb:115:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:8:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__818430000__process_action__callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:132:in `block in process'
+
+
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 16:41:29 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>"hello world"}, "commit"=>"Send"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["content", "hello world"], ["created_at", Mon, 15 Sep 2014 11:11:29 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:11:29 UTC +00:00]]
+  [1m[36m (328.3ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 336ms
+
+NoMethodError (undefined method `call' for nil:NilClass):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:66:in `call_on_error'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:136:in `rescue in block in process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:145:in `block in process'
+
+
+
+ActionView::MissingTemplate (Missing template messages/create, application/create with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/gopi/Development/livestream/app/views"
+):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/path_set.rb:46:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/lookup_context.rb:115:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:8:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__818430000__process_action__callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:132:in `block in process'
+
+
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 16:41:31 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>"hello world"}, "commit"=>"Send"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "hello world"], ["created_at", Mon, 15 Sep 2014 11:11:31 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:11:31 UTC +00:00]]
+  [1m[35m (283.2ms)[0m  commit transaction
+Completed 500 Internal Server Error in 290ms
+
+NoMethodError (undefined method `call' for nil:NilClass):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:66:in `call_on_error'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:136:in `rescue in block in process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:145:in `block in process'
+
+
+
+ActionView::MissingTemplate (Missing template messages/create, application/create with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/gopi/Development/livestream/app/views"
+):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/path_set.rb:46:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/lookup_context.rb:115:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:8:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__818430000__process_action__callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:132:in `block in process'
+
+
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 16:41:32 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>"hello world"}, "commit"=>"Send"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["content", "hello world"], ["created_at", Mon, 15 Sep 2014 11:11:32 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:11:32 UTC +00:00]]
+  [1m[36m (277.5ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 285ms
+
+NoMethodError (undefined method `call' for nil:NilClass):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:66:in `call_on_error'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:136:in `rescue in block in process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:145:in `block in process'
+
+
+
+ActionView::MissingTemplate (Missing template messages/create, application/create with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/gopi/Development/livestream/app/views"
+):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/path_set.rb:46:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/lookup_context.rb:115:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:8:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__818430000__process_action__callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:132:in `block in process'
+
+
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 16:44:19 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>"hello world"}, "commit"=>"Send"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "hello world"], ["created_at", Mon, 15 Sep 2014 11:14:19 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:14:19 UTC +00:00]]
+  [1m[35m (320.9ms)[0m  commit transaction
+Completed 500 Internal Server Error in 329ms
+
+NoMethodError (undefined method `call' for nil:NilClass):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:66:in `call_on_error'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:136:in `rescue in block in process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:145:in `block in process'
+
+
+
+ActionView::MissingTemplate (Missing template messages/create, application/create with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/gopi/Development/livestream/app/views"
+):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/path_set.rb:46:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/lookup_context.rb:115:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:8:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__818430000__process_action__callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:132:in `block in process'
+
+
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 16:44:42 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>"hello world"}, "commit"=>"Send"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["content", "hello world"], ["created_at", Mon, 15 Sep 2014 11:14:42 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:14:42 UTC +00:00]]
+  [1m[36m (334.8ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 342ms
+
+NoMethodError (undefined method `call' for nil:NilClass):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:66:in `call_on_error'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:136:in `rescue in block in process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:145:in `block in process'
+
+
+
+ActionView::MissingTemplate (Missing template messages/create, application/create with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/gopi/Development/livestream/app/views"
+):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/path_set.rb:46:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/lookup_context.rb:115:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:8:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__818430000__process_action__callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:132:in `block in process'
+
+
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 16:44:43 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>"hello world"}, "commit"=>"Send"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "hello world"], ["created_at", Mon, 15 Sep 2014 11:14:43 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:14:43 UTC +00:00]]
+  [1m[35m (296.1ms)[0m  commit transaction
+
+Completed 500 Internal Server Error in 303ms
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 16:44:43 +0530
+
+NoMethodError (undefined method `call' for nil:NilClass):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:66:in `call_on_error'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:136:in `rescue in block in process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:145:in `block in process'
+
+
+
+ActionView::MissingTemplate (Missing template messages/create, application/create with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/gopi/Development/livestream/app/views"
+):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/path_set.rb:46:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/lookup_context.rb:115:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:8:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__818430000__process_action__callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:132:in `block in process'
+
+
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>"hello world"}, "commit"=>"Send"}
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["content", "hello world"], ["created_at", Mon, 15 Sep 2014 11:14:43 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:14:43 UTC +00:00]]
+  [1m[36m (219.9ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 230ms
+
+NoMethodError (undefined method `call' for nil:NilClass):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:66:in `call_on_error'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:136:in `rescue in block in process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:145:in `block in process'
+
+
+
+ActionView::MissingTemplate (Missing template messages/create, application/create with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/gopi/Development/livestream/app/views"
+):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/path_set.rb:46:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/lookup_context.rb:115:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:8:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__818430000__process_action__callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:132:in `block in process'
+
+
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 17:02:00 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>"hello world"}, "commit"=>"Send"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "hello world"], ["created_at", Mon, 15 Sep 2014 11:32:00 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:32:00 UTC +00:00]]
+  [1m[35m (275.1ms)[0m  commit transaction
+Completed 500 Internal Server Error in 282ms
+
+NoMethodError (undefined method `call' for nil:NilClass):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:66:in `call_on_error'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:136:in `rescue in block in process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:145:in `block in process'
+
+
+
+ActionView::MissingTemplate (Missing template messages/create, application/create with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/gopi/Development/livestream/app/views"
+):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/path_set.rb:46:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/lookup_context.rb:115:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:8:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__818430000__process_action__callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:132:in `block in process'
+
+
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-15 17:04:24 +0530
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-15 17:04:24 +0530
+
+
+Started GET "/assets/chats.css?body=1" for 127.0.0.1 at 2014-09-15 17:04:24 +0530
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2014-09-15 17:04:24 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-15 17:04:24 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-15 17:04:24 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-15 17:04:24 +0530
+
+
+Started GET "/assets/chats.js?body=1" for 127.0.0.1 at 2014-09-15 17:04:24 +0530
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2014-09-15 17:04:24 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-15 17:04:24 +0530
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:04:24 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:04:24 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 6002ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 17:04:33 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>""}, "commit"=>"Send"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["content", ""], ["created_at", Mon, 15 Sep 2014 11:34:33 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:34:33 UTC +00:00]]
+  [1m[36m (290.2ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 296ms
+
+NoMethodError (undefined method `call' for nil:NilClass):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:66:in `call_on_error'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:136:in `rescue in block in process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:145:in `block in process'
+
+
+
+ActionView::MissingTemplate (Missing template messages/create, application/create with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/gopi/Development/livestream/app/views"
+):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/path_set.rb:46:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/lookup_context.rb:115:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:8:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__818430000__process_action__callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:132:in `block in process'
+
+
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 17:04:35 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>""}, "commit"=>"Send"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", ""], ["created_at", Mon, 15 Sep 2014 11:34:35 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:34:35 UTC +00:00]]
+  [1m[35m (338.2ms)[0m  commit transaction
+Completed 500 Internal Server Error in 346ms
+
+NoMethodError (undefined method `call' for nil:NilClass):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:66:in `call_on_error'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:136:in `rescue in block in process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:145:in `block in process'
+
+
+
+ActionView::MissingTemplate (Missing template messages/create, application/create with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/gopi/Development/livestream/app/views"
+):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/path_set.rb:46:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/lookup_context.rb:115:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:8:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__818430000__process_action__callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:132:in `block in process'
+
+
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 17:04:37 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>""}, "commit"=>"Send"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["content", ""], ["created_at", Mon, 15 Sep 2014 11:34:37 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:34:37 UTC +00:00]]
+  [1m[36m (282.9ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 290ms
+
+NoMethodError (undefined method `call' for nil:NilClass):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:66:in `call_on_error'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:136:in `rescue in block in process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:145:in `block in process'
+
+
+
+ActionView::MissingTemplate (Missing template messages/create, application/create with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :png, :jpeg, :gif, :bmp, :tiff, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/home/gopi/Development/livestream/app/views"
+):
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/path_set.rb:46:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/lookup_context.rb:115:in `find'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:35:in `determine_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/template_renderer.rb:8:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:42:in `render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_view/renderer/renderer.rb:23:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:127:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:97:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:16:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:189:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:403:in `_run__818430000__process_action__callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/callbacks.rb:80:in `run_callbacks'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `block in instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activesupport-4.0.0/lib/active_support/notifications.rb:159:in `instrument'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/activerecord-4.0.0/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/base.rb:136:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/abstract_controller/rendering.rb:44:in `process'
+  /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.0.0/lib/action_controller/metal/live.rb:132:in `block in process'
+
+
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-15 17:15:20 +0530
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-15 17:15:20 +0530
+
+
+Started GET "/assets/chats.css?body=1" for 127.0.0.1 at 2014-09-15 17:15:20 +0530
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2014-09-15 17:15:20 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-15 17:15:20 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-15 17:15:20 +0530
+
+
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-15 17:15:20 +0530
+Started GET "/assets/chats.js?body=1" for 127.0.0.1 at 2014-09-15 17:15:20 +0530
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2014-09-15 17:15:20 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-15 17:15:20 +0530
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:15:20 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:15:20 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 6002ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-15 17:17:17 +0530
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 40ms (Views: 39.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2014-09-15 17:17:17 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-15 17:17:17 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-15 17:17:17 +0530
+
+
+
+
+Started GET "/assets/chats.css?body=1" for 127.0.0.1 at 2014-09-15 17:17:17 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-15 17:17:17 +0530
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2014-09-15 17:17:17 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-15 17:17:17 +0530
+
+
+
+
+Started GET "/assets/chats.js?body=1" for 127.0.0.1 at 2014-09-15 17:17:17 +0530
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-15 17:17:17 +0530
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:17:17 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:17:17 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 6002ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-15 17:17:25 +0530
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/chats.js?body=1" for 127.0.0.1 at 2014-09-15 17:17:25 +0530
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2014-09-15 17:17:25 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-15 17:17:25 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-15 17:17:25 +0530
+
+
+Started GET "/assets/chats.css?body=1" for 127.0.0.1 at 2014-09-15 17:17:25 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-15 17:17:25 +0530
+
+
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-15 17:17:25 +0530
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-15 17:17:25 +0530
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2014-09-15 17:17:25 +0530
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:17:26 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:17:26 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6002ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:17:37 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:17:48 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:17:59 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6003ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:18:10 +0530
+Processing by MessagesController#events as text/event-stream
+Completed 200 OK in 6002ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:18:21 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:18:21 +0530
+Processing by MessagesController#events as HTML
+stream closed
+Completed 200 OK in 4003ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 6002ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-15 17:20:46 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (3.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (51.9ms)
+Completed 200 OK in 305ms (Views: 257.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-15 17:22:49 +0530
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 31ms (Views: 29.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-15 17:22:50 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-15 17:22:50 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-15 17:22:50 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-15 17:22:50 +0530
+
+
+
+
+Started GET "/assets/chats.css?body=1" for 127.0.0.1 at 2014-09-15 17:22:50 +0530
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2014-09-15 17:22:50 +0530
+
+
+Started GET "/assets/chats.js?body=1" for 127.0.0.1 at 2014-09-15 17:22:50 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-15 17:22:50 +0530
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2014-09-15 17:22:50 +0530
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:22:50 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:22:50 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 17:23:22 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"SAI", "content"=>"hello angel?l"}, "commit"=>"Send"}
+  [1m[35m (0.6ms)[0m  begin transaction
+  [1m[36mSQL (34.4ms)[0m  [1mINSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "hello angel?l"], ["created_at", Mon, 15 Sep 2014 11:53:22 UTC +00:00], ["name", "SAI"], ["updated_at", Mon, 15 Sep 2014 11:53:22 UTC +00:00]]
+  [1m[35m (624.5ms)[0m  commit transaction
+  Rendered text template (0.1ms)
+Completed 200 OK in 683ms (Views: 4.2ms | ActiveRecord: 659.6ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 17:23:23 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"SAI", "content"=>"hello angel?l"}, "commit"=>"Send"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["content", "hello angel?l"], ["created_at", Mon, 15 Sep 2014 11:53:23 UTC +00:00], ["name", "SAI"], ["updated_at", Mon, 15 Sep 2014 11:53:23 UTC +00:00]]
+  [1m[36m (318.9ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 335ms (Views: 6.0ms | ActiveRecord: 319.8ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 17:23:24 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"SAI", "content"=>"hello angel?l"}, "commit"=>"Send"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "hello angel?l"], ["created_at", Mon, 15 Sep 2014 11:53:24 UTC +00:00], ["name", "SAI"], ["updated_at", Mon, 15 Sep 2014 11:53:24 UTC +00:00]]
+
+
+  [1m[35m (396.6ms)[0m  commit transaction
+
+  Rendered text template (0.1ms)
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 17:23:24 +0530
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 17:23:24 +0530
+Processing by MessagesController#create as JS
+Completed 200 OK in 418ms (Views: 9.6ms | ActiveRecord: 397.4ms)
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"SAI", "content"=>"hello angel?l"}, "commit"=>"Send"}
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["content", "hello angel?l"], ["created_at", Mon, 15 Sep 2014 11:53:24 UTC +00:00], ["name", "SAI"], ["updated_at", Mon, 15 Sep 2014 11:53:24 UTC +00:00]]
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"SAI", "content"=>"hello angel?l"}, "commit"=>"Send"}
+  [1m[36m (0.9ms)[0m  [1mbegin transaction[0m
+  [1m[35m (325.8ms)[0m  commit transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "hello angel?l"], ["created_at", Mon, 15 Sep 2014 11:53:25 UTC +00:00], ["name", "SAI"], ["updated_at", Mon, 15 Sep 2014 11:53:25 UTC +00:00]]
+  Rendered text template (0.0ms)
+  [1m[35m (181.6ms)[0m  commit transaction
+Completed 200 OK in 522ms (Views: 184.6ms | ActiveRecord: 327.3ms)
+  Rendered text template (0.0ms)
+Completed 200 OK in 202ms (Views: 1.9ms | ActiveRecord: 183.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-15 17:23:38 +0530
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/chats.js?body=1" for 127.0.0.1 at 2014-09-15 17:23:38 +0530
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2014-09-15 17:23:38 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-15 17:23:38 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-15 17:23:38 +0530
+
+
+Started GET "/assets/chats.css?body=1" for 127.0.0.1 at 2014-09-15 17:23:38 +0530
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2014-09-15 17:23:38 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-15 17:23:38 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-15 17:23:38 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-15 17:23:38 +0530
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:23:38 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:23:38 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages" for 127.0.0.1 at 2014-09-15 17:25:20 +0530
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-15 17:25:20 +0530
+
+
+Started GET "/assets/chats.css?body=1" for 127.0.0.1 at 2014-09-15 17:25:20 +0530
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2014-09-15 17:25:20 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-15 17:25:20 +0530
+
+
+
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-15 17:25:20 +0530
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2014-09-15 17:25:20 +0530
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-15 17:25:20 +0530
+
+
+Started GET "/assets/chats.js?body=1" for 127.0.0.1 at 2014-09-15 17:25:20 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-15 17:25:20 +0530
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:25:20 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 17:25:20 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 17:25:36 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>"hai"}, "commit"=>"Send"}
+  [1m[36m (0.7ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["content", "hai"], ["created_at", Mon, 15 Sep 2014 11:55:36 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:55:36 UTC +00:00]]
+  [1m[36m (312.0ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 336ms (Views: 14.6ms | ActiveRecord: 313.4ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 17:25:37 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>"hai"}, "commit"=>"Send"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "hai"], ["created_at", Mon, 15 Sep 2014 11:55:37 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:55:37 UTC +00:00]]
+  [1m[35m (284.1ms)[0m  commit transaction
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 17:25:38 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>"hai"}, "commit"=>"Send"}
+  Rendered text template (0.0ms)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["content", "hai"], ["created_at", Mon, 15 Sep 2014 11:55:38 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:55:38 UTC +00:00]]
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 17:25:38 +0530
+  [1m[36m (356.1ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 668ms (Views: 362.2ms | ActiveRecord: 284.7ms)
+Processing by MessagesController#create as JS
+stream closed
+stream closed
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>"hai"}, "commit"=>"Send"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 119835ms (ActiveRecord: 0.0ms)
+Completed 200 OK in 119905ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  begin transaction
+Completed 200 OK in 452ms (Views: 82.1ms | ActiveRecord: 357.0ms)
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "hai"], ["created_at", Mon, 15 Sep 2014 11:55:38 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:55:38 UTC +00:00]]
+  [1m[35m (183.5ms)[0m  commit transaction
+  Rendered text template (0.1ms)
+Completed 200 OK in 274ms (Views: 2.8ms | ActiveRecord: 184.4ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 17:25:40 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>"hai"}, "commit"=>"Send"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["content", "hai"], ["created_at", Mon, 15 Sep 2014 11:55:40 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:55:40 UTC +00:00]]
+  [1m[36m (275.8ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 288ms (Views: 2.6ms | ActiveRecord: 276.6ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 17:25:40 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"sai", "content"=>"hai"}, "commit"=>"Send"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "hai"], ["created_at", Mon, 15 Sep 2014 11:55:40 UTC +00:00], ["name", "sai"], ["updated_at", Mon, 15 Sep 2014 11:55:40 UTC +00:00]]
+  [1m[35m (265.0ms)[0m  commit transaction
+  Rendered text template (0.1ms)
+Completed 200 OK in 279ms (Views: 6.0ms | ActiveRecord: 265.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-15 18:09:52 +0530
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/chats.js?body=1" for 127.0.0.1 at 2014-09-15 18:09:52 +0530
+
+
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2014-09-15 18:09:52 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-15 18:09:52 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-15 18:09:52 +0530
+
+
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-15 18:09:52 +0530
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-15 18:09:52 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-15 18:09:52 +0530
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2014-09-15 18:09:53 +0530
+
+
+Started GET "/assets/chats.css?body=1" for 127.0.0.1 at 2014-09-15 18:09:53 +0530
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 18:09:53 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 18:09:53 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 18:10:15 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"Azmad", "content"=>"Hello Ruby?"}, "commit"=>"Send"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (4.0ms)[0m  INSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["content", "Hello Ruby?"], ["created_at", Mon, 15 Sep 2014 12:40:15 UTC +00:00], ["name", "Azmad"], ["updated_at", Mon, 15 Sep 2014 12:40:15 UTC +00:00]]
+  [1m[36m (302.9ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 328ms (Views: 7.4ms | ActiveRecord: 307.1ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 18:11:24 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"Azmad", "content"=>"Hello Ruby?"}, "commit"=>"Send"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Hello Ruby?"], ["created_at", Mon, 15 Sep 2014 12:41:24 UTC +00:00], ["name", "Azmad"], ["updated_at", Mon, 15 Sep 2014 12:41:24 UTC +00:00]]
+  [1m[35m (309.1ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 328ms (Views: 1.9ms | ActiveRecord: 311.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-15 18:11:58 +0530
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-15 18:11:58 +0530
+
+
+Started GET "/assets/chats.css?body=1" for 127.0.0.1 at 2014-09-15 18:11:58 +0530
+
+
+
+
+Started GET "/assets/messages.css?body=1" for 127.0.0.1 at 2014-09-15 18:11:58 +0530
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-15 18:11:58 +0530
+
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-09-15 18:11:58 +0530
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-15 18:11:58 +0530
+
+
+
+
+Started GET "/assets/chats.js?body=1" for 127.0.0.1 at 2014-09-15 18:11:58 +0530
+Started GET "/assets/messages.js?body=1" for 127.0.0.1 at 2014-09-15 18:11:58 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-15 18:11:58 +0530
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 18:11:58 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started GET "/messages/events" for 127.0.0.1 at 2014-09-15 18:11:58 +0530
+Processing by MessagesController#events as text/event-stream
+
+
+Started POST "/messages" for 127.0.0.1 at 2014-09-15 18:23:14 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"name"=>"", "content"=>""}, "commit"=>"Send"}
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "messages" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["content", ""], ["created_at", Mon, 15 Sep 2014 12:53:14 UTC +00:00], ["name", ""], ["updated_at", Mon, 15 Sep 2014 12:53:14 UTC +00:00]]
+  [1m[36m (170.0ms)[0m  [1mcommit transaction[0m
+  Rendered text template (2.5ms)
+Completed 200 OK in 205ms (Views: 6.1ms | ActiveRecord: 171.9ms)
+Completed   in 5519166ms
+Completed   in 2570800ms
+Completed   in 5369031ms
+Completed   in 2696131ms
+Completed   in 2570886ms
+Completed   in 5518908ms
+Completed   in 5369100ms
+Completed   in 2696205ms

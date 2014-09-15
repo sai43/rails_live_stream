@@ -1,0 +1,7 @@
+<p>chat-window</p>
+
+<%= form_for Message.new, remote: true do |f| %>
+  
+  <%= f.text_area(:message, size: '50x10') %>
+
+<% end %>
